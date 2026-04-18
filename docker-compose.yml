@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  ems:
+    build:
+      context: .
+      dockerfile: Dockerfile        # insecure by default — use Dockerfile.secure for Lab 3
+    container_name: ems-api
+    ports:
+      - "8080:8080"
+    env_file: .env                  # .env is gitignored — secrets stay out of source
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8080/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
