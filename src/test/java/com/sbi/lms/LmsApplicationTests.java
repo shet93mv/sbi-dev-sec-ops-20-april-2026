@@ -12,5 +12,6 @@ class LmsApplicationTests {
     void contextLoads() {
         // Smoke test — confirms the Spring context wires up correctly.
         // Run: mvn test
+        // comment
     }
 }
