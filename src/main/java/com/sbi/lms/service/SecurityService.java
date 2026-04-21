@@ -14,6 +14,7 @@ public class SecurityService {
     /**
      * DevSecOps: PAN masking — shows only last 4 characters.
      * Example: ABCPK1234E → ******1234E
+     * Comment
      * Satisfies A01 Broken Access Control for OFFICER role responses.
      */
     public String maskPan(String pan) {
